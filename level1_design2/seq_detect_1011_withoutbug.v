@@ -72,6 +72,6 @@ module seq_detect_1011_withoutbug(seq_seen, inp_bit, reset, clk);
           next_state = SEQ_10;
       end
     endcase
-    default: next_state <= 0;
+    default: next_state = 0;
   end
 endmodule
