@@ -32,10 +32,6 @@ Output mismatches for the above inputs proving that there is a design bug
 Based on the above test input and analysing the design, we see the following
 
 ```
- always @(a or b) 
-  begin
-    sum = a - b;             ====> BUG
-  end
   begin
     case(sel)
       5'b00000: out = inp0;  
