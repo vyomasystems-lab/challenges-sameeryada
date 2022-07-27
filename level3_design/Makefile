@@ -4,7 +4,7 @@ TOPLEVEL_LANG ?= verilog
 
 PWD=$(shell pwd)
 
-VERILOG_SOURCES = $(PWD)/alu.v               # provide your design path
+VERILOG_SOURCES = $(PWD)/alu_buggy.v               # provide your design path
 
 TOPLEVEL := alu          # design file
 MODULE   := alu_test    # test file
