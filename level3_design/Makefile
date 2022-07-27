@@ -4,9 +4,9 @@ TOPLEVEL_LANG ?= verilog
 
 PWD=$(shell pwd)
 
-VERILOG_SOURCES = $(PWD)/alu_buggy.v               # provide your design path
+VERILOG_SOURCES = $(PWD)/alu.v               # provide your design path
 
-TOPLEVEL := alu_buggy          # design file
+TOPLEVEL := alu          # design file
 MODULE   := alu_test    # test file
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
