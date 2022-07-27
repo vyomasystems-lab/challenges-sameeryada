@@ -17,7 +17,7 @@ async def alu_test(dut):
     # input driving
     dut.A.value = A1
     dut.B.value = B1
-    dut.ALU_Sel.value = B1
+    dut.ALU_Sel.value = SEL1
 
     await Timer(2, units='ns')
 
