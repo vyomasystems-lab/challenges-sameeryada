@@ -80,15 +80,41 @@ Output sequence mismatches for the above inputs proving that there is a design b
 
 ## Design Bug
 Based on the above test input and analysing the design, we see the following
-
 that for overlapping sequence the seq_detect_1011 is unable to give detect output
 ```
-
- 
-     
-     
-                                              ====> BUG: for overlapping sequence the seq_detect_1011 is unable to give detect output
-      
+IDLE:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_1;
+        else
+          next_state = IDLE;
+      end
+      SEQ_1:
+      begin
+        if(inp_bit == 1)
+          next_state = IDLE;   ====> BUG: next_state state should remain in SEQ_1
+        else
+          next_state = SEQ_10;
+      end
+      SEQ_10:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_101;
+        else
+          next_state = IDLE;
+      end
+      SEQ_101:
+      begin
+        if(inp_bit == 1)
+          next_state = SEQ_1011;
+        else
+          next_state = IDLE;       ====> BUG: next_state state should go to SEQ_10 
+      end
+      SEQ_1011:
+      begin
+        next_state = IDLE;   ====> BUG: next_state state should go to SEQ_1 if inp_bit = 1 is detected otherwise next_state state should go to SEQ_10 
+      end
+    endcase      
 ```
 
 ## Design Fix
