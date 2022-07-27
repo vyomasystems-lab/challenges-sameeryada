@@ -6,8 +6,8 @@ PWD=$(shell pwd)
 
 VERILOG_SOURCES = $(PWD)/alu.v               # provide your design path
 
-TOPLEVEL :=           # design file
-MODULE   :=     # test file
+TOPLEVEL := alu          # design file
+MODULE   := alu_test    # test file
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
 
