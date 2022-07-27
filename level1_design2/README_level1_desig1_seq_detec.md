@@ -83,6 +83,7 @@ Based on the above test input and analysing the design, we see the following
 
 that for overlapping sequence the seq_detect_1011 is unable to give detect output
 ```
+
  
      
      
@@ -92,32 +93,45 @@ that for overlapping sequence the seq_detect_1011 is unable to give detect outpu
 
 ## Design Fix
 Updating the design by including overlapping case and re-running the test makes the test pass.
-
+For Sequence Test Case- 1  = 11011
 ```
- -.--ns INFO     cocotb.gpi                         ..mbed/gpi_embed.cpp:76   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
-     -.--ns INFO     cocotb.gpi                         ../gpi/GpiCommon.cpp:99   in gpi_print_registered_impl       VPI registered
-     0.00ns INFO     Running on Icarus Verilog version 11.0 (stable)
-     0.00ns INFO     Running tests with cocotb v1.6.2 from /workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb
-     0.00ns INFO     Seeding Python random module with 1658823175
-     0.00ns WARNING  Pytest not found, assertion rewriting will not occur
-     0.00ns INFO     Found test test_mux.test_mux
-     0.00ns INFO     running test_mux (1/1)
-     2.00ns INFO     ##### CTB: Develop your test here ########
-     2.00ns INFO     test_mux passed
-     2.00ns INFO     **************************************************************************************
-                     ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
-                     **************************************************************************************
-                     ** test_mux.test_mux              PASS           2.00           0.00       3755.17  **
-                     **************************************************************************************
-                     ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  2.00           0.01        307.86  **
-                     **************************************************************************************
+    0.00ns WARNING  Pytest not found, assertion rewriting will not occur
+     0.00ns INFO     Found test test_seq_detect_1011.test_seq_bug1
+     0.00ns INFO     running test_seq_bug1 (1/1)
+ 15000.00ns INFO     Input bit: z
+ 15000.00ns INFO     #### CTB: Develop your test here! ######
+ 65000.00ns INFO     test_seq_bug1 passed
+ 65000.00ns INFO     ********************************************************************************************
+                     ** TEST                                STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     ********************************************************************************************
+                     ** test_seq_detect_1011.test_seq_bug1   PASS       65000.00           0.00   32815330.31  **
+                     ********************************************************************************************
+                     ** TESTS=1 PASS=1 FAIL=0 SKIP=0                    65000.00           0.01    4829066.25  **
+                     ********************************************************************************************
                      
-make[1]: Leaving directory '/workspace/challenges-sameeryada/level1_design1'
+make[1]: Leaving directory '/workspace/challenges-sameeryada/level1_design2'
 ```
-
-The updated design is checked in as mux_withoutbuggy.v
+For Sequence Test Case- 2  = 101011
+```
+ 0.00ns WARNING  Pytest not found, assertion rewriting will not occur
+     0.00ns INFO     Found test test_seq_detect_1011.test_seq_bug1
+     0.00ns INFO     running test_seq_bug1 (1/1)
+ 15000.00ns INFO     Input bit: z
+ 15000.00ns INFO     #### CTB: Develop your test here! ######
+ 75000.00ns INFO     test_seq_bug1 passed
+ 75000.00ns INFO     ********************************************************************************************
+                     ** TEST                                STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                     ********************************************************************************************
+                     ** test_seq_detect_1011.test_seq_bug1   PASS       75000.00           0.00   33095508.07  **
+                     ********************************************************************************************
+                     ** TESTS=1 PASS=1 FAIL=0 SKIP=0                    75000.00           0.01    5597580.06  **
+                     ********************************************************************************************
+                     
+make[1]: Leaving directory '/workspace/challenges-sameeryada/level1_design2'
+```
+The updated design is checked in as seq_detect_1011_withoutbug.v
 
 ## Verification Strategy
- We include the missing test case and mux perfrom as expected
+ We change the code by including case for overlapping sequence.
 ## Is the verification complete ?
 Yes
