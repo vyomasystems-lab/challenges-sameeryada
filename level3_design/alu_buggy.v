@@ -37,7 +37,7 @@
 //
 // Verilog project: Verilog code for ALU
 //
-module alu(
+module alu_buggy(
            input [7:0] A,B,  // ALU 8-bit Inputs                 
            input [3:0] ALU_Sel,// ALU Selection
            output [7:0] ALU_Out, // ALU 8-bit Output
