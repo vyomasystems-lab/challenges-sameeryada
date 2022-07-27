@@ -81,28 +81,28 @@ For the ALU design, the case  ``4'b0001: // Subtraction ``include should be ` AL
 Updating the design and re-running the test makes the test pass.
 
 ```
- -.--ns INFO     cocotb.gpi                         ..mbed/gpi_embed.cpp:76   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
+     -.--ns INFO     cocotb.gpi                         ..mbed/gpi_embed.cpp:76   in set_program_name_in_venv        Did not detect Python virtual environment. Using system-wide Python interpreter
      -.--ns INFO     cocotb.gpi                         ../gpi/GpiCommon.cpp:99   in gpi_print_registered_impl       VPI registered
      0.00ns INFO     Running on Icarus Verilog version 11.0 (stable)
      0.00ns INFO     Running tests with cocotb v1.6.2 from /workspace/.pyenv_mirror/fakeroot/versions/3.8.13/lib/python3.8/site-packages/cocotb
-     0.00ns INFO     Seeding Python random module with 1658823175
+     0.00ns INFO     Seeding Python random module with 1658913681
      0.00ns WARNING  Pytest not found, assertion rewriting will not occur
-     0.00ns INFO     Found test test_mux.test_mux
-     0.00ns INFO     running test_mux (1/1)
-     2.00ns INFO     ##### CTB: Develop your test here ########
-     2.00ns INFO     test_mux passed
+     0.00ns INFO     Found test alu_test.alu_test
+     0.00ns INFO     running alu_test (1/1)
+     2.00ns INFO     alu_test passed
      2.00ns INFO     **************************************************************************************
                      ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
                      **************************************************************************************
-                     ** test_mux.test_mux              PASS           2.00           0.00       3755.17  **
+                     ** alu_test.alu_test              PASS           2.00           0.00       2950.02  **
                      **************************************************************************************
-                     ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  2.00           0.01        307.86  **
+                     ** TESTS=1 PASS=1 FAIL=0 SKIP=0                  2.00           0.01        264.32  **
                      **************************************************************************************
                      
-make[1]: Leaving directory '/workspace/challenges-sameeryada/level1_design1'
+     make[1]: Leaving directory '/workspace/challenges-sameeryada/level3_design'
 ```
 
 The updated design is checked in as alu.v
+
 
 ## Verification Strategy
  We correct the inserted bug A - B
