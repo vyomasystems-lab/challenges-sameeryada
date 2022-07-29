@@ -1,10 +1,10 @@
-# Mux Design Verification
+# Bitmanipulation co-processor Design Verification
 
 The verification environment is setup using [Vyoma's UpTickPro](https://vyomasystems.com) provided for the hackathon.
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 2-bit input *inp0-inp30* and 5-bit select line *sel* and gives 2-bit output *out* based on select line *sel*
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 32-bit input operands *mav_putvalue_src1, mav_putvalue_src2, mav_putvalue_src3*, one 32-bit instruction set (*mav_putvalue_instr*) which decide which operation is to perform in operands and gives 33-bit output (*mav_putvalue*) of which *mav_putvalue[0] = 1 or 0*  decide operation is valid or not
 
 The values are assigned to the input port using 
 ```
