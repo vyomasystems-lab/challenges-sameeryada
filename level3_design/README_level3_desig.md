@@ -4,7 +4,7 @@ The verification environment is setup using [Vyoma's UpTickPro](https://vyomasys
 
 ## Verification Environment
 
-The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 2-bit input *inp0-inp30* and 5-bit select line *sel* and gives 2-bit output *out* based on select line *sel*
+The [CoCoTb](https://www.cocotb.org/) based Python test is developed as explained. The test drives inputs to the Design Under Test (mux module here) which takes in 2  8-bit input (*A*,*B*), one 4-bit select line input *ALU-Sel* for selecting the operation and 2 output (*ALU_Out*, *CarryOut*)
 
 The values are assigned to the input port using 
 ```
@@ -30,7 +30,7 @@ The following error is seen:
 Output mismatches for the above inputs proving that there is a design bug
 
 ## Design Bug
-Based on the above test input and analysing the design, we see the following
+Based on the above test input and analysing the design, we see the following by inserting a bug in the design  
 
 ```
    always @(*)
